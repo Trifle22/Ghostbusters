@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -40,6 +42,7 @@ body {
     color: #A5A5A5;
     background-position: center left;
     margin-left: 34px;
+    outline: none;
 }
 
 .navigation {
