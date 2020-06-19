@@ -459,14 +459,17 @@ body {
         bottom: 0;
         right: 0;
         background: #5671F6;
-        display: none;
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
         height: calc(100% - 78px);
+        transition: all 1s ease-in;
+        transform: translateX(100%);
     }
     .m-menu.active {
         display: flex;
+        transform: translateX(0);
     }
     .button-group {
         height: auto;
