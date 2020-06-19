@@ -10,13 +10,23 @@ body {
     color: #363636;
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 .header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     height: 104px;
     border-bottom: 1px solid #D4D4D4;
     padding-left: 34px;
+}
+
+.m-menu {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    flex-grow: 1;
 }
 
 .logo {
@@ -149,6 +159,7 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .trailer-button-icon {
@@ -271,9 +282,19 @@ body {
 }
 
 .tabs-content {
-    display: flex;
+    display: none;
     align-items: center;
     flex-wrap: wrap;
+    visibility: hidden;
+}
+
+.tabs-content.visible {
+    display: flex;
+    visibility: visible;
+}
+
+.tab {
+    cursor: pointer;
 }
 
 .card {
@@ -344,6 +365,18 @@ body {
     line-height: 16px;
     color: #000000;
     margin-top: 14px;
+}
+
+.button-next {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 99;
+    cursor: pointer;
+    display: none;
 }
 
 @media (max-width: 1200px) {
@@ -419,6 +452,58 @@ body {
     .container {
         max-width: 560px;
     }
+    .m-menu {
+        position: fixed;
+        left: 0;
+        top: 78px;
+        bottom: 0;
+        right: 0;
+        background: #5671F6;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        height: calc(100% - 78px);
+    }
+    .m-menu.active {
+        display: flex;
+    }
+    .button-group {
+        height: auto;
+        flex-direction: column;
+    }
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+    .navigation-link {
+        color: white;
+        margin-bottom: 18px;
+        margin-right: 0;
+    }
+    .navigation-link:last-child {
+        margin-bottom: 0;
+    }
+    .sign-up {
+        background-color: transparent;
+        color: white;
+        border: none;
+        margin-bottom: 30px;
+    }
+    .search-input {
+        margin: 0;
+        width: 260px;
+        height: 50px;
+        border-radius: 5px;
+        border: none;
+        background-image: none;
+    }
+    .mobile-buttons {
+        margin-left: auto;
+    }
     .header {
         height: 80px;
     }
@@ -443,6 +528,12 @@ body {
         padding-top: 50px;
         padding-bottom: 70px;
     }
+    .news-card {
+        max-width: 90%;
+    }
+    .button-next {
+        display: block;
+    }
 }
 
 @media (max-width: 669px) {
@@ -453,13 +544,7 @@ body {
         order: 1;
         margin-bottom: 0px;
     }
-    .button-group {
-        display: none;
-    }
     .header-logo::after {
-        display: none;
-    }
-    .search-input {
         display: none;
     }
     .film-trailer,
